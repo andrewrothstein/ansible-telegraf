@@ -37,7 +37,7 @@
       become_user: root
       unarchive:
         remote_src: yes
-        src: /tmp/{{ telegraf_archive}}
+        src: /tmp/{{ telegraf_archive }}
         dest: '{{ telegraf_ver_install_dir }}'
         creates: '{{ telegraf_ver_install_dir }}/telegraf'
   always:
