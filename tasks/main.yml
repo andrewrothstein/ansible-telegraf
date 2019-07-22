@@ -1,0 +1,56 @@
+---
+- name: resolve platform specific vars
+  include_vars: '{{ item }}'
+  with_first_found:
+    - files:
+        - '{{ ansible_distribution }}-{{ ansible_distribution_release }}.yml'
+        - '{{ ansible_distribution }}.yml'
+        - '{{ ansible_os_family }}.yml'
+      skip: true
+      paths:
+        - '{{ role_path }}/vars'
+- name: check for telegraf install
+  become: yes
+  stat:
+    path: '{{ telegraf_ver_install_dir }}'
+  changed_when: False
+  register: telegraf_binary
+- when: not telegraf_binary.stat.exists
+  block:
+    - name: download archive
+      become: yes
+      become_user: root
+      get_url:
+        url: '{{ telegraf_url }}'
+        dest: /tmp/{{ telegraf_archive }}
+        mode: 0644
+        checksum: '{{ telegraf_checksum }}'
+    - name: mkdir
+      become: yes
+      become_user: root
+      file:
+        path: '{{ telegraf_ver_install_dir }}'
+        mode: 0755
+        state: directory
+    - name: unarchive
+      become: yes
+      become_user: root
+      unarchive:
+        remote_src: yes
+        src: /tmp/{{ telegraf_archive}}
+        dest: '{{ telegraf_ver_install_dir }}'
+        creates: '{{ telegraf_ver_install_dir }}/telegraf'
+  always:
+    - name: cleanup
+      become: yes
+      become_user: root
+      file:
+        path: /tmp/{{ telegraf_archive }}
+        state: absent
+- name: link
+  become: yes
+  become_user: root
+  file:
+    src: '{{ telegraf_ver_install_dir }}/telegraf'
+    dest: '{{ telegraf_link }}'
+    state: link

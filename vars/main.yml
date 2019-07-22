@@ -1,0 +1,8 @@
+---
+# vars file for telegraf
+telegraf_archive: telegraf-{{ telegraf_ver }}_{{ telegraf_platform }}.{{ telegraf_archive_type }}
+telegraf_url: '{{ telegraf_mirror }}/{{ telegraf_archive }}'
+telegraf_checksum: '{{ telegraf_checksums[telegraf_ver][telegraf_platform] }}'
+
+telegraf_ver_install_dir: '{{ telegraf_parent_install_dir }}/telegraf-{{ telegraf_ver }}'
+telegraf_link: '{{ telegraf_parent_install_dir }}/telegraf'
