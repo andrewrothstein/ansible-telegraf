@@ -1,5 +1,6 @@
 ---
 # vars file for telegraf
+telegraf_platform: '{{ telegraf_os }}_{{ telegraf_arch }}'
 telegraf_archive: telegraf-{{ telegraf_ver }}_{{ telegraf_platform }}.{{ telegraf_archive_type }}
 telegraf_url: '{{ telegraf_mirror }}/{{ telegraf_archive }}'
 telegraf_checksum: '{{ telegraf_checksums[telegraf_ver][telegraf_platform] }}'

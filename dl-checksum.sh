@@ -1,29 +1,37 @@
 #!/usr/bin/env sh
-VER=1.11.2
 DIR=~/Downloads
 MIRROR=https://dl.influxdata.com/telegraf/releases
 
 dl()
 {
-    OS=$1
-    ARCH=$2
-    ARCHIVETYPE=$3
+    local ver=$1
+    local os=$2
+    local arch=$3
+    local archive_type=$4
 
-    FILE=telegraf-${VER}_${OS}_${ARCH}.${ARCHIVETYPE}
-    URL=$MIRROR/$FILE
-    LFILE=$DIR/$FILE
+    local platform="${os}_${arch}"
 
-    if [ ! -e $LFILE ];
+    local file=telegraf-${ver}_${platform}.${archive_type}
+    local url=$MIRROR/$file
+    local lfile=$DIR/$file
+
+    if [ ! -e $lfile ];
     then
-        wget -q -O $LFILE $URL
+        wget -q -O $lfile $url
     fi
 
-    printf "    # %s\n" $URL
-    printf "    %s_%s: sha256:%s\n" $OS $ARCH `sha256sum $LFILE | awk '{print $1}'`
+    printf "    # %s\n" $url
+    printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
 }
 
-printf "  '%s':\n" $VER
-dl linux amd64 tar.gz
-dl linux i386 tar.gz
-dl linux armhf tar.gz
-dl windows amd64 zip
+dl_ver()
+{
+    local ver=$1
+    printf "  '%s':\n" $ver
+    dl $ver linux amd64 tar.gz
+    dl $ver linux i386 tar.gz
+    dl $ver linux armhf tar.gz
+    dl $ver windows amd64 zip
+}
+
+dl_ver ${1:-1.12.4}
