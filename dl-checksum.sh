@@ -7,7 +7,7 @@ dl()
     local ver=$1
     local os=$2
     local arch=$3
-    local archive_type=$4
+    local archive_type=${4:-tar.gz}
 
     local platform="${os}_${arch}"
 
@@ -28,10 +28,10 @@ dl_ver()
 {
     local ver=$1
     printf "  '%s':\n" $ver
-    dl $ver linux amd64 tar.gz
-    dl $ver linux i386 tar.gz
-    dl $ver linux armhf tar.gz
+    dl $ver linux amd64
+    dl $ver linux i386
+    dl $ver linux armhf
     dl $ver windows amd64 zip
 }
 
-dl_ver ${1:-1.12.4}
+dl_ver ${1:-1.13.1}
