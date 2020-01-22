@@ -47,10 +47,17 @@
       file:
         path: /tmp/{{ telegraf_archive }}
         state: absent
-- name: link
+- name: link telegraf directory
   become: yes
   become_user: root
   file:
     src: '{{ telegraf_ver_install_dir }}/telegraf'
     dest: '{{ telegraf_link }}'
+    state: link
+- name: link telegraf binary
+  become: yes
+  become_user: root
+  file:
+    src: '{{ telegraf_link }}/usr/bin/telegraf'
+    dest: '{{ telegraf_parent_install_dir }}/bin/telegraf'
     state: link
