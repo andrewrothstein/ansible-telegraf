@@ -1,6 +1,7 @@
 #!/usr/bin/env sh
 DIR=~/Downloads
-MIRROR=https://dl.influxdata.com/telegraf/releases
+APP=telegraf
+MIRROR=https://dl.influxdata.com/${APP}/releases
 
 dl()
 {
@@ -8,18 +9,14 @@ dl()
     local os=$2
     local arch=$3
     local archive_type=${4:-tar.gz}
-
     local platform="${os}_${arch}"
-
-    local file=telegraf-${ver}_${platform}.${archive_type}
+    local file=${APP}-${ver}_${platform}.${archive_type}
     local url=$MIRROR/$file
     local lfile=$DIR/$file
-
     if [ ! -e $lfile ];
     then
         wget -q -O $lfile $url
     fi
-
     printf "    # %s\n" $url
     printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
 }
