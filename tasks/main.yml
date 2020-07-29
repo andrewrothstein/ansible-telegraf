@@ -12,7 +12,7 @@
 - name: check for telegraf install
   become: yes
   stat:
-    path: '{{ telegraf_ver_install_dir }}'
+    path: '{{ telegraf_install_dir }}'
   changed_when: False
   register: telegraf_binary
 - when: not telegraf_binary.stat.exists
@@ -25,21 +25,14 @@
         dest: /tmp/{{ telegraf_archive }}
         mode: 0644
         checksum: '{{ telegraf_checksum }}'
-    - name: mkdir
-      become: yes
-      become_user: root
-      file:
-        path: '{{ telegraf_ver_install_dir }}'
-        mode: 0755
-        state: directory
     - name: unarchive
       become: yes
       become_user: root
       unarchive:
         remote_src: yes
         src: /tmp/{{ telegraf_archive }}
-        dest: '{{ telegraf_ver_install_dir }}'
-        creates: '{{ telegraf_ver_install_dir }}/telegraf'
+        dest: '{{ telegraf_parent_install_dir }}'
+        creates: '{{ telegraf_install_dir }}'
   always:
     - name: cleanup
       become: yes
@@ -51,13 +44,13 @@
   become: yes
   become_user: root
   file:
-    src: '{{ telegraf_ver_install_dir }}/telegraf'
-    dest: '{{ telegraf_link }}'
+    src: '{{ telegraf_install_dir }}'
+    dest: '{{ telegraf_link_dir }}'
     state: link
 - name: link telegraf binary
   become: yes
   become_user: root
   file:
-    src: '{{ telegraf_link }}/usr/bin/telegraf'
+    src: '{{ telegraf_link_dir }}/usr/bin/telegraf'
     dest: '{{ telegraf_parent_install_dir }}/bin/telegraf'
     state: link

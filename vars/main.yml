@@ -1,9 +1,10 @@
 ---
 # vars file for telegraf
 telegraf_platform: '{{ telegraf_os }}_{{ telegraf_arch }}'
-telegraf_archive: telegraf-{{ telegraf_ver }}_{{ telegraf_platform }}.{{ telegraf_archive_type | default("tar.gz") }}
+telegraf_name: telegraf-{{ telegraf_ver }}
+telegraf_archive: '{{ telegraf_name }}_{{ telegraf_platform }}.{{ telegraf_archive_type | default("tar.gz") }}'
 telegraf_url: '{{ telegraf_mirror }}/{{ telegraf_archive }}'
 telegraf_checksum: '{{ telegraf_checksums[telegraf_ver][telegraf_platform] }}'
 
-telegraf_ver_install_dir: '{{ telegraf_parent_install_dir }}/telegraf-{{ telegraf_ver }}'
-telegraf_link: '{{ telegraf_parent_install_dir }}/telegraf'
+telegraf_install_dir: '{{ telegraf_parent_install_dir }}/{{ telegraf_name }}'
+telegraf_link_dir: '{{ telegraf_parent_install_dir }}/telegraf'
