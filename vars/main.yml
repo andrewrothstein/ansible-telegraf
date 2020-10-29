@@ -3,8 +3,12 @@
 telegraf_platform: '{{ telegraf_os }}_{{ telegraf_arch }}'
 telegraf_name: telegraf-{{ telegraf_ver }}
 telegraf_archive: '{{ telegraf_name }}_{{ telegraf_platform }}.{{ telegraf_archive_type | default("tar.gz") }}'
+telegraf_tmp_archive: /tmp/{{ telegraf_archive }}
 telegraf_url: '{{ telegraf_mirror }}/{{ telegraf_archive }}'
 telegraf_checksum: '{{ telegraf_checksums[telegraf_ver][telegraf_platform] }}'
 
 telegraf_install_dir: '{{ telegraf_parent_install_dir }}/{{ telegraf_name }}'
+telegraf_install_exe: '{{ telegraf_install_dir }}/usr/bin/telegraf'
+
 telegraf_link_dir: '{{ telegraf_parent_install_dir }}/telegraf'
+telegraf_link_exe: '{{ telegraf_parent_install_dir }}/bin/telegraf'
