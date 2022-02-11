@@ -1,6 +1,6 @@
 ---
 # defaults file for telegraf
-telegraf_ver: 1.21.2
+telegraf_ver: 1.21.3
 telegraf_mirror: https://dl.influxdata.com/telegraf/releases
 telegraf_os: linux
 telegraf_arch: amd64
@@ -332,3 +332,12 @@ telegraf_checksums:
     linux_armhf: sha256:fab4c450be7e5cf2a2d2e01ffde19d92c9222850b0600ce14b32435251cc897b
     # https://dl.influxdata.com/telegraf/releases/telegraf-1.21.2_windows_amd64.zip
     windows_amd64: sha256:6a32468fa7db36bbaf1c6ea1054cd12c2170d6c0a8bb7ae0c0b00bb971a68eb7
+  '1.21.3':
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.21.3_linux_amd64.tar.gz
+    linux_amd64: sha256:cdf23ba657243a27fc0f78717ae095c10f16ca5be8e668c5c284cd92ca8fc309
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.21.3_linux_i386.tar.gz
+    linux_i386: sha256:64b53424c7e6f0f9808c2e90e600a3e3c065b7a0ce8b0c96e4a58b0eb5c79db8
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.21.3_linux_armhf.tar.gz
+    linux_armhf: sha256:dd11c4604d93ebd6ab7d997140615b8ef55a682d8c51342de43ba16390304aed
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.21.3_windows_amd64.zip
+    windows_amd64: sha256:2e0a0666847cbc9e9d6d417987056df5856d24e7836609409e2ca37eb51e7efb
