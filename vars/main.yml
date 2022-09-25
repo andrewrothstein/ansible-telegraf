@@ -1,5 +1,7 @@
 ---
 # vars file for telegraf
+telegraf_os: '{{ ansible_system | lower }}'
+telegraf_arch: '{{ telegraf_arch_map[ansible_architecture] }}'
 telegraf_platform: '{{ telegraf_os }}_{{ telegraf_arch }}'
 telegraf_name: telegraf-{{ telegraf_ver }}
 telegraf_archive: '{{ telegraf_name }}_{{ telegraf_platform }}.{{ telegraf_archive_type | default("tar.gz") }}'

@@ -15,20 +15,36 @@ dl()
     local lfile=$DIR/$file
     if [ ! -e $lfile ];
     then
-        curl -sSLf -o $lfile $url
+        curl -sLf -o $lfile $url
     fi
-    printf "    # %s\n" $url
-    printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
+    if [ -e $lfile ];
+    then
+        printf "    # %s\n" $url
+        printf "    %s: sha256:%s\n" $platform $(sha256sum $lfile | awk '{print $1}')
+    fi
 }
 
 dl_ver()
 {
     local ver=$1
     printf "  '%s':\n" $ver
+    dl $ver darwin amd64
+    dl $ver darwin arm64
+    dl $ver freebsd amd64
+    dl $ver freebsd armv7
+    dl $ver freebsd i386
     dl $ver linux amd64
-    dl $ver linux i386
+    dl $ver linux arm64
+    dl $ver linux armel
     dl $ver linux armhf
+    dl $ver linux i386
+    dl $ver linux mips
+    dl $ver linux mipsel
+    dl $ver linux ppc64le
+    dl $ver linux riscv64
+    dl $ver linux s390x
     dl $ver windows amd64 zip
+    dl $ver windows i386 zip
 }
 
-dl_ver ${1:-1.23.4}
+dl_ver ${1:-1.24.1}
