@@ -47,4 +47,4 @@ dl_ver()
     dl $ver windows i386 zip
 }
 
-dl_ver ${1:-1.24.2}
+dl_ver ${1:-1.24.3}
