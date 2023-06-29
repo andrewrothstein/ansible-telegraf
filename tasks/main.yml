@@ -12,15 +12,15 @@
       paths:
         - '{{ role_path }}/vars'
 - name: check for install in {{ telegraf_install_dir }}
-  become: yes
+  become: true
   stat:
     path: '{{ telegraf_install_dir }}'
-  changed_when: False
+  changed_when: false
   register: telegraf_binary
 - when: not telegraf_binary.stat.exists
   block:
     - name: downloading {{ telegraf_url }}
-      become: yes
+      become: true
       become_user: root
       get_url:
         url: '{{ telegraf_url }}'
@@ -28,29 +28,29 @@
         mode: 0644
         checksum: '{{ telegraf_checksum }}'
     - name: unarchiving {{ telegraf_tmp_archive }} to {{ telegraf_parent_install_dir }}
-      become: yes
+      become: true
       become_user: root
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: '{{ telegraf_tmp_archive }}'
         dest: '{{ telegraf_parent_install_dir }}'
         creates: '{{ telegraf_install_dir }}'
   always:
     - name: rm {{ telegraf_tmp_archive }}
-      become: yes
+      become: true
       become_user: root
       file:
         path: '{{ telegraf_tmp_archive }}'
         state: absent
 - name: link {{ telegraf_link_dir }} to {{ telegraf_install_dir }}
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ telegraf_install_dir }}'
     dest: '{{ telegraf_link_dir }}'
     state: link
 - name: link {{ telegraf_link_exe }} to {{ telegraf_install_exe }}
-  become: yes
+  become: true
   become_user: root
   file:
     src: '{{ telegraf_install_exe }}'
