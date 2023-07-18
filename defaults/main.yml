@@ -1,6 +1,6 @@
 ---
 # defaults file for telegraf
-telegraf_ver: 1.27.2
+telegraf_ver: 1.27.3
 telegraf_mirror: https://dl.influxdata.com/telegraf/releases
 telegraf_arch_map:
   386: i386
@@ -1982,3 +1982,4 @@ telegraf_checksums:
     windows_amd64: sha256:bc6e131bafe38e77b70eb7342b6fc47af24732b985818ebdee671acaa1512638
     # https://dl.influxdata.com/telegraf/releases/telegraf-1.27.2_windows_i386.zip
     windows_i386: sha256:c4b4782981546300bf4a7658b23293f046f91d2404fb2ef5aeff27ab09baf8bd
+  '1.27.3':
