@@ -1,9 +1,13 @@
 ---
-- hosts: all
+- name: Testing andrewrothstein.telegraf
+  hosts: all
   roles:
-  - role: '{{ playbook_dir }}'
+    - role: '{{ playbook_dir }}'
   tasks:
-  - command: /usr/local/bin/telegraf --version
-    register: telegraf_test_output
-  - debug:
-      msg: '{{ telegraf_test_output.stdout }}'
+    - name: Executing 'telegraf --version'
+      ansible.builtin.command: /usr/local/bin/telegraf --version
+      changed_when: false
+      register: telegraf_test_output
+    - name: Output from 'telegraf --version'
+      ansible.builtin.debug:
+        msg: '{{ telegraf_test_output.stdout }}'
