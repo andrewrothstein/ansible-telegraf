@@ -1,6 +1,6 @@
 ---
 # defaults file for telegraf
-telegraf_ver: 1.33.1
+telegraf_ver: 1.33.3
 telegraf_mirror: https://dl.influxdata.com/telegraf/releases
 telegraf_arch_map:
   386: i386
@@ -2612,3 +2612,73 @@ telegraf_checksums:
     windows_amd64: sha256:3586051f47b05d1b2869cac8e77d7418537ce5b5464cf3891cdb0d1b62996485
     # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.1_windows_i386.zip
     windows_i386: sha256:fcc784d1dc58eabfef5af9228b2587ccd5aca5a8779a21efe3c92a8a9ab8e536
+  '1.33.2':
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_darwin_amd64.tar.gz
+    darwin_amd64: sha256:22884c63d9fbf32fefc8e7ca84a1d0a6b2e8b107358c24b762a4c4d0344d17d6
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_darwin_arm64.tar.gz
+    darwin_arm64: sha256:c77d96df08d8d8431705c377f2609e3267ebb4c1afebffd92803e2d385f74f06
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_freebsd_amd64.tar.gz
+    freebsd_amd64: sha256:db177b199be9e0e684b094d5c8a59d5d20785c67f42d1b576dddd7124bfd9dcc
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_freebsd_armv7.tar.gz
+    freebsd_armv7: sha256:394ebd247c03ee00714a0352a24964dc81f777b1c51caaf6f305c241211bfca1
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_freebsd_i386.tar.gz
+    freebsd_i386: sha256:8cf7bbeadc318368da25aaaffc74b357e15bd1160df50b6e82c28d7bf8c9eac6
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_amd64.tar.gz
+    linux_amd64: sha256:999d4a7ea3c3e5d2133ec2aaaec772900a2a7c096f77f6469c3682909ba48c05
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_arm64.tar.gz
+    linux_arm64: sha256:5dcc1778f0d92251806cc925340e9cb14eeb478846f2f0a82bdb60503ad0d88d
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_armel.tar.gz
+    linux_armel: sha256:66edb715cc0ae0995c75133f005792cef3959bc119bf2730ed8c3b9172bb7246
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_armhf.tar.gz
+    linux_armhf: sha256:49750ab8a795ee9fac44302f6367a004e60545e1964ddeab262501dc175a8ec2
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_i386.tar.gz
+    linux_i386: sha256:08815a1859dbacca4b7b824ab443b0b8e8379fe8914bae7850e201ff281c7ded
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_mips.tar.gz
+    linux_mips: sha256:3a1a4553ea156e5a276adb97454e60e22104c389f749d92018d6255105d60579
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_mipsel.tar.gz
+    linux_mipsel: sha256:5e18e23a08aef30418a6331ea7e82b76f5b672106e1facba927e8bd8b6e6f43c
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_ppc64le.tar.gz
+    linux_ppc64le: sha256:500c0c10a1a6937a5ced3d157ee40399cddb3494839dfdd63513d54654960b47
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_riscv64.tar.gz
+    linux_riscv64: sha256:ede468b64497848216428582e661c2d482e12633a0792603ad0b0ab21604459d
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_linux_s390x.tar.gz
+    linux_s390x: sha256:1d3bb57aaa961b2e40ce7c16e15ed3421907a2e33f1bb2b82b3e3b16e9a166d4
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_windows_amd64.zip
+    windows_amd64: sha256:90927ab70d6db1e72c78e543130943fbc8940a7f95592fd37f40c98737dd2a36
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.2_windows_i386.zip
+    windows_i386: sha256:9fcb8189784721c0dc32c5a7a41231f2800dee588f556c136218cdc47f2eb335
+  '1.33.3':
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_darwin_amd64.tar.gz
+    darwin_amd64: sha256:3ab5e87356b73c834cc71832e37d600b63e48b8f416bdbcb0be8f3e3726d8f36
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_darwin_arm64.tar.gz
+    darwin_arm64: sha256:5a94b1e078eff2db9912b4b4d2fa162493a3e010ddf0dbb780b3a44f73dc8902
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_freebsd_amd64.tar.gz
+    freebsd_amd64: sha256:739a334970b40cf338a72ade35db92eabac3ac7f5a0265780169fc09db7eb455
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_freebsd_armv7.tar.gz
+    freebsd_armv7: sha256:75adb3b6680f6a3db063ce0cae9b8591fb197af59c4816dad3857544f0d487ee
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_freebsd_i386.tar.gz
+    freebsd_i386: sha256:b33fd27ee239275c9344595c33bd0ee5de7e2340ce30649b7ad1c851435ba1d1
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_amd64.tar.gz
+    linux_amd64: sha256:ca9fa208b3522b2da8c406407c1bce1aca79189c516576f8ad533add93eb201b
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_arm64.tar.gz
+    linux_arm64: sha256:67266ef2835ec9982e71d061db1f28f797416cde884ba9c97ff6f12a31914c1b
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_armel.tar.gz
+    linux_armel: sha256:fff33cd7ed78616b94293528f0be579db60ffd7f0cd8fd9fb71b738eb16dbefe
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_armhf.tar.gz
+    linux_armhf: sha256:fe4a3a73820b8786c2cff6c74d2b1fe054dff62e91b64c313614c5cbd87d0e88
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_i386.tar.gz
+    linux_i386: sha256:ec1acd799a3dacb44575a63a4cc2259d17de6c09593f0cae0f86199f0bb5fa82
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_mips.tar.gz
+    linux_mips: sha256:4f06a2b0f7c62b2b8359223c049ba9ab66c28386a55bdeca68efcdb22d14c527
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_mipsel.tar.gz
+    linux_mipsel: sha256:0a43527d2d0cbe2eeb9b88473ba130d7905d5ade32624b60958f2d6e93c765be
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_ppc64le.tar.gz
+    linux_ppc64le: sha256:c7879891488d9f98831d2a3835ae18c6f7f98e73e92f1f79a4769111582a163c
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_riscv64.tar.gz
+    linux_riscv64: sha256:ea80ab015dd52c73610a46d28019f69eb9d06534c9e7aa3a5dd38766046e557b
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_linux_s390x.tar.gz
+    linux_s390x: sha256:d0dda4ee8f21b7bdb5010e0bad539cd75892fdb4c9e06a0bf8287798092eb98a
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_windows_amd64.zip
+    windows_amd64: sha256:dcdb47e6c228f8837cc1e8103280574e061d338b21febfbd9e0557c8c78b460c
+    # https://dl.influxdata.com/telegraf/releases/telegraf-1.33.3_windows_i386.zip
+    windows_i386: sha256:a2faa0116943ff6ecaefc92a3c7af74d4e67e67c15650966b1a7d896108fd9ce
